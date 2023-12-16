@@ -1,266 +1,299 @@
-#Practical 1A
-'''Q1.A) Addition Of Two Complex Numbers'''
-a = 4 + 2j
-b = 3 - 5j
-print("Addition Of Two Complex Numbers Is", a+b)
-
-
-#Practical 1B
-'''Q1.B) Conjugate Of A Complex Number'''
-a = 4 + 2j
-a.conjugate()
-
-
-#PRACTICAL 1C
-'''Q1.C) Plotting A Set Of Complex Numbers'''
-import matplotlib.pyplot as plt
-x = 2 + 2j
-a = [-2+4j, -1+2j, 0+2j, 1+2j, 2+2j, -1+4j, 0+4j, 1+4j]
-X = [x.real for x in a]
-Y = [x.imag for x in a]
-plt.scatter(X,Y, color='red')
-plt.show()
-
-
-
-#PRACTICAL 2 (Rotation For 90 Degree)
-'''Creating A New Plot By Rotating The Given Number By A Degree 90, 180, 270
-Degrees And Also By Scaling By A Number a = 1/2, a = 1/3, a = 2 etc '''
-import matplotlib.pyplot as plt
-x = 2 + 4j
-z = 1j
-plt.scatter(x.real,x.imag,color='red')
-c = x * z
-plt.scatter(c.real, c.imag)
-plt.show()
-
-#PRACTICAL 2 (Rotation For 180 Degree)
-import matplotlib.pyplot as plt
-x = 2 +4j
-plt.scatter(x.real, x.imag, color='red')
-plt.scatter(-1 * x.real, -1 *x.imag,color='blue')
-plt.show()
-
-#PRACTICAL 2 (Rotation For 270 Degree)
-import matplotlib.pyplot as plt
-x = 2 + 4j
-z = -1j
-plt.scatter(x.real,x.imag,color='red')
-c = x * z
-plt.scatter(c.real, c.imag)
-plt.show()
-
-
-
-#PRACTICAL 3
-'''WAP To Do The Following
-   a. Enter A Vector U As A n-list
-   b. Enter Another Vector v as a n-list
-   c. Find The Vector au+bv For DIfferent Values Of a And b
-   d. Find The Dot Product Of u And v'''
-import numpy as np
-
-u = np.array([3, 4, 5])
-v = np.array([1, 2, 7])
-
-print("vector u", u)
-print("vector v", v)
-
-print("Enter The Value Of a and b")
-a = int(input())  # Convert user input to a floating-point number
-b = int(input())  # Convert user input to a floating-point number
-
-# Perform vector operations
-d = a * u + b * v
-p = np.dot(u, v)
-
-print("vector au + bv:", d)
-print("dot product of u and v:", p)
-
-
-#Program 4A
-"""Q1.A Enter two distinct faces as vectors u and v."""
-from PIL import Image
-import numpy as np
-
-# File paths to your images
-file1= r'/content/boy.jpg'
-file2 = r'/content/images.jpeg'
-
-# Open the images
-
-a= Image.open(file1)
-b = Image.open(file2)
-
-# Display the images
-a.show()
-b.show()
-
-# Convert the images to manrays
-numpydata1 = np.array(a)
-numpydata2 = np.array(b)
-
-# Get the shapes of the NumPy arrays
-i1 = numpydata1.shape
-i2 = numpydata2.shape
-print(i1)
-# Create new images from the shape arrays
-a1 = Image.fromarray(np.zeros(i1, dtype=np. uint8))
-a1.show()
-b1 = Image.fromarray(np.zeros(12, dtype=np. uint8))
-b1.show()
-
-
-#Program 4B
-""" Find a new face as a linear combination of
-u and v i.e au+bv for a and b in R"""
-import numpy as np
-from PIL import Image
-from IPython.display import display
-
-file1 = '/content/boy.jpg'
-file2 = '/content/images.jpeg'
-a = Image.open(file1)
-b = Image.open(file2)
-# Resize an image array using PIL
-def imresize(im, sz):
-    pil_im = Image.fromarray(im)
-    return np.array(pil_im.resize(sz))
-
-i1 = np.array(a)
-i2 = np.array(b)
-# Resize image 1
-r1 = imresize(i1, (200, 200))
-# Resize image 2
-r2 = imresize(i2, (200, 200))
-x = 1
-y = 0
-# Perform a linear combination
-linear_comb = x * r1 + y * r2
-
-# Convert the resulting array back to an image
-lincomb_img = Image.fromarray(np.uint8(linear_comb))
-
-# Show the resulting image
-print(lincomb_img)
-lincomb_img.show()
-display(lincomb_img)
-
-
-#Program 4C
-""" Find the average face of original faces """
-from PIL import Image
-import numpy as np
-from IPython.display import display
-
-file1 = '/content/boy.jpg'
-file2 = '/content/images.jpeg'
-
-a = Image.open(file2)
-b = Image.open(file1)
-
-a.show()
-b.show()
-
-i1 = np.array(a)
-i2 = np.array(b)
-
-print(11)
-print(12)
-
-def imageresize(im, sz):
-    pil_im = Image.fromarray(np.uint8(im))
-    return pil_im.resize(sz)
-
-r1 = np.array(imageresize(i1, (300, 300)))
-r2 = np.array(imageresize(i2, (300, 300)))
-x = 2
-y = 9
-c = x * r1 + y * r2
-c1 = Image.fromarray(np.uint8(c))
-
-display(c1)
-
-
-#PRACTICAL 5
-'''Q5.A) Enter A r By c Matrix M(r And c Being Positive Integers)
-   B) Display M In Matrix Format
-   C) Display The Rows And Columns Of The Matrix M Printing Rows
-   D) Find The Scalar Multiplication Of M For A Given Scalar
-   E) Find The Transpose Of The Matrix M'''
-import numpy as np
-M = np.array([[1,1,2],[2,6,7],[3,6,7]])
-print("\nM = ",M)
-y1 = M[0:1]
-print("\ny1 = ",y1)
-y2 = M[0:2]
-print("y2 = ",y2)
-y3 = M[0:3]
-print("y3 = ",y3)
-
-x1 = M[:,0:1]
-print("\nx1 = ",x1)
-x2 = M[:,0:2]
-print("x2 = ",x2)
-x3 = M[:,0:3]
-print("x3 = ",x3)
-
-a = 5
-scalarresult = a * M
-print("\nScalar Result =", scalarresult)
-
-T = np.array([[0,0,0],
-             [0,0,0],
-             [0,0,0]
-            ])
-for i in range(len(M)):
-  for j in range(len(M[0])):
-    T[j][i] = M[i][j]
-print("\nTranspose =",T)
-
-
-#PRACTICAL 6A
-'''Q6.A) Find The Vector-Matrix Multiplication Of A r By c Matrix M
-   With An c-vector u'''
-import numpy as np
-a = np.array([0,4,6])
-b = np.array([[1, 1],[4, 9], [-1,-10]])
-print(np.dot(a,b))
-
-#PRACTICAL 6B
-'''Q6.B) Find The Matrix-Matrix Product Of M With A c By p Matrix N'''
-X = [[3,3,2],
-    [4,1,5],
-    [7,2,7]]
-
-Y = [[5,3,1,2],
-    [1,7,3,0],
-    [2,5,2,1]]
-
-MUL = [[0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0]]
-
-print("MULTIPLICATION OF TWO MATRIX IS: ")
-for i in range (len(X)):
-  for j in range (len(Y[0])):
-    for k in range (len(Y)):
-      MUL[i][j] += X[i][k] * Y[k][j]
-
-for r in MUL:
-  print(r)
-
-
-#PRACTICAL 7
-'''Q7) WAP To Enter A Matrix And Check If It Is Invertible. If
-   The Inverse Exists, Find The Inverse'''
-import numpy as np
-M = np.array([[1,2,1],[2,1,0],[3,0,2]])
-print("The Matrix M Is: ", M)
-a = np.linalg.det(M)
-print("Deteminant Of Matrix M Is ", a)
-if a<=0:
-  Minv = np.linalg.inv(M)
-  print("The Inverse Of Matrix M Is", Minv)
-else:
-  print("Matrix Is Not Invertible")
+PRACTICAL 1 - WAP TO MAKE A ORDERED LIST
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ordered List Example</title>
+</head>
+<body>
+<h2>Example Ordered List</h2>
+<ol>
+<li>HTML</li>
+<li>CSS</li>
+<li>JAVASCRIPT</li>
+<li>XML</li>
+</ol>
+</body>
+</html>
+*********************************************
+PRACTICAL 2 - WAP TO MAKE A UNORDERED LIST
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unordered List Example</title>
+</head>
+<body>
+<h2>Web Technology</h2>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JAVASCRIPT</li>
+<li>XML</li>
+</ul>
+</body>
+</html>
+*********************************************
+PRACTICAL 3 - WAP TO MAKE A FORM HTML, CSS
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color:#2f4f4f;
+margin: 0;
+padding: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+form {
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+width: 300px;
+}
+label {
+display: block;
+margin-bottom: 8px;
+}
+input {
+width: 100%;
+padding: 8px;
+margin-bottom: 16px;
+box-sizing: border-box;
+}
+button {
+background-color: #4caf50;
+color: #fff;
+padding: 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 50%;
+margin-left: 70px;
+}
+button:hover {
+background-color: #45a049;
+}
+</style>
+</head>
+<body>
+<form>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
+*********************************************
+PRACTICAL 4 - WAP TO MAKE A TABLE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Simple Table</title>
+<style>
+table {
+border-collapse: collapse;
+width: 50%;
+margin: 20px auto;
+}
+th, td {
+border: 1px solid #d9d8d8;
+text-align: left;
+padding: 8px;
+}
+th {
+background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+<table border="1">
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peter Parker</td>
+<td>23</td>
+<td>New York</td>
+</tr>
+<tr>
+<td>Mary Jane</td>
+<td>23</td>
+<td>Los Angeles</td>
+</tr>
+<tr>
+<td>Harry Osborn</td>
+<td>23</td>
+<td>Chicago</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
+*********************************************
+PRACTICAL 5 - WA JS PROGRAM FOR SUM OF DIGITS OF A NUMBER
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sum Of Digits Of Number</title>
+<script>
+function sum() {
+var n = parseInt(document.getElementById("numberInput").value, 10),
+sum = 0;
+while (n) sum += n % 10, n = Math.floor(n / 10);
+document.write("Sum of Digits: " + sum);
+}
+</script>
+</head>
+<body>
+<label for="numberInput">Enter a number:</label>
+<input type="text" id="numberInput" placeholder="Enter a number">
+<br>
+<input type="button" value="Display" onclick="sum()">
+</body>
+</html>
+*********************************************
+PRACTICAL 6 - WA JS PROGRAM TO DETERMINE WHETHER THE NUMBER IS
+EVEN/ODD
+<!DOCTYPE html>
+<html>
+<head>
+<title>Even or Odd Checker</title>
+<script>
+function checkEvenOdd() {
+var n = parseInt(document.getElementById("numberInput").value, 10);
+document.getElementById('result').innerText = isNaN(n) ? 'Invalid input.
+Please enter a number.' : `${n} is ${n % 2 ? "Odd" : "Even"}.`;
+}
+</script>
+</head>
+<body>
+<label for="numberInput">Enter a number:</label>
+<input type="text" id="numberInput" placeholder="Enter a number">
+<br>
+<button onclick="checkEvenOdd()">Check Even/Odd</button>
+<p id="result"></p>
+</body>
+</html>
+*********************************************
+PRACTICAL 7 - WA JS PROGRAM TO CONVERT CELSIUS TO FAHRENHEIT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celsius to Fahrenheit Converter</title>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const celsius = 25; // Predefined Celsius temperature
+document.getElementById('result').innerText = `${celsius}°C is ${(celsius *
+9/5 + 32).toFixed(2)}°F.`;
+});
+</script>
+</head>
+<body>
+<p id="result"></p>
+</body>
+</html>
+*********************************************
+PRACTICAL 8 - WA JS PROGRAM TO DETERMINE PRIME NUMBER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Number Checker</title>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const num = 17; // Predefined number
+const isPrime = Array.from({ length: Math.sqrt(num) }, (_, i) => num % (i +
+2) !== 0).every(Boolean);
+document.getElementById('result').innerText = `${num} is ${isPrime ?
+'prime' : 'not prime'}.`;
+});
+</script>
+</head>
+<body>
+<p id="result"></p>
+</body>
+</html>
+*********************************************
+PRACTICAL 9 -
+<!-- HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Styled Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<form>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required>
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>
+/* style.css */
+body {
+font-family: 'Arial', sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 0;
+}
+.container {
+width: 50%;
+margin: auto;
+}
+form {
+background-color: #fff;
+padding: 20px;
+margin-top: 50px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+}
+label {
+display: block;
+margin-bottom: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+input[type="submit"] {
+background-color: #4caf50;
+color: #fff;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+*********************************************
